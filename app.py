@@ -5,7 +5,13 @@ import os
 import time
 
 USERS = ["Adeel", "Anubhav", "Andrew"]
-DB_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "jokes.json")
+APP_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_FILE = os.path.join(APP_DIR, "jokes.json")
+AVATARS = {
+    "Adeel": os.path.join(APP_DIR, "Adeel.png"),
+    "Anubhav": os.path.join(APP_DIR, "anubhav.png"),
+    "Andrew": os.path.join(APP_DIR, "Andrew.png"),
+}
 
 
 def load_db():
@@ -29,9 +35,11 @@ def generate_joke(target, topic):
 
 
 def login_page():
-    st.title("Yo Momma Sharks")
+    st.title("Yo Momma Sharks :shark:")
+    st.write("**Files in app directory:**", os.listdir(APP_DIR))
     st.subheader("Pick your fighter")
     name = st.selectbox("Who are you?", USERS)
+    st.image(AVATARS[name], width=200, caption=name)
     if st.button("Login"):
         st.session_state.user = name
         st.rerun()
@@ -41,7 +49,7 @@ def main_page():
     user = st.session_state.user
     db = load_db()
 
-    st.title("Yo Momma Sharks")
+    st.title("Yo Momma Sharks :shark:")
     st.caption(f"Logged in as **{user}**")
     if st.button("Logout"):
         del st.session_state.user
@@ -62,16 +70,20 @@ def main_page():
     # --- Roast Arena ---
     st.header("The Roast Arena")
     targets = [u for u in USERS if u != user]
-    target = st.selectbox("Choose your target", targets)
 
     with st.form("roast_form"):
-        topic = st.text_input("Topic (e.g. 'Bad Driver')")
+        col_target, col_topic = st.columns(2)
+        with col_target:
+            target = st.selectbox("Choose your target", targets)
+        with col_topic:
+            topic = st.text_input("Topic (e.g. 'Bad Driver')")
         submitted = st.form_submit_button("Generate Roast", type="primary")
 
     if submitted:
         if not topic.strip():
             st.warning("Enter a topic first!")
         else:
+            st.toast("Generating roast...", icon="🦈")
             with st.spinner("Cooking up a roast..."):
                 joke_text = generate_joke(target, topic.strip())
             joke_entry = {
