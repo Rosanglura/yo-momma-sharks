@@ -36,8 +36,7 @@ def generate_joke(target, topic):
 
 def login_page():
     st.title("Yo Momma Sharks :shark:")
-    st.write("**Files in app directory:**", os.listdir(APP_DIR))
-    st.subheader("Pick your fighter")
+st.subheader("Pick your fighter")
     name = st.selectbox("Who are you?", USERS)
     st.image(AVATARS[name], width=200, caption=name)
     if st.button("Login"):
