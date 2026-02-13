@@ -1,0 +1,36 @@
+{
+  "jokes": [
+    {
+      "id": 1770981577726,
+      "sender": "Andrew",
+      "target": "Adeel",
+      "topic": "bad driver",
+      "content": "Yo Momma so bad at driving, the GPS screams \"Recalculating... for YOUR safety!\" when she turns the car on!",
+      "upvotes": 1,
+      "downvotes": 0,
+      "voted_by": [
+        "Anubhav"
+      ]
+    },
+    {
+      "id": 1770981736968,
+      "sender": "Andrew",
+      "target": "Adeel",
+      "topic": "Bad driver",
+      "content": "Yo Momma so bad at driving, she thought the \"Do Not Enter\" sign was a personal challenge!",
+      "upvotes": 0,
+      "downvotes": 0,
+      "voted_by": []
+    },
+    {
+      "id": 1770981768712,
+      "sender": "Andrew",
+      "target": "Adeel",
+      "topic": "Fat momma",
+      "content": "Yo Adeel, your momma so fat, when she sits on the curb, she's actually sitting in two different zip codes!",
+      "upvotes": 0,
+      "downvotes": 0,
+      "voted_by": []
+    }
+  ]
+}
