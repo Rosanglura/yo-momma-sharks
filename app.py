@@ -43,6 +43,23 @@ def login_page():
         st.session_state.user = name
         st.rerun()
 
+    st.divider()
+    st.subheader("How to Play")
+    st.markdown(
+        """
+1. **Login** by selecting your name above.
+2. **Pick a target** — choose one of the other two players to roast.
+3. **Enter a topic** (e.g. "Bad Driver") and hit **Generate Roast** (or press Enter).
+4. The AI will craft a Yo Momma joke aimed at your target.
+5. **Voting rules:**
+   - The **sender** and **target** cannot vote on a joke.
+   - Only the **third party** (the uninvolved player) can upvote or downvote.
+   - Each player can only vote once per joke.
+6. **Scoreboard** tracks each player's total score (upvotes minus downvotes).
+7. The player with the highest score is the ultimate **Yo Momma Shark**!
+"""
+    )
+
 
 def main_page():
     user = st.session_state.user
